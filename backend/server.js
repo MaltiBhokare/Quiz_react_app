@@ -133,7 +133,7 @@ const app = express();
 
 // ✅ CORS Configuration with Proper Headers and Credentials
 const corsOptions = {
-  origin: "https://quiz-react-app-frntend.vercel.app",
+  origin: "https://quiz-react-app-frntnd5.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true, // Allow cookies and auth headers
