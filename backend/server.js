@@ -119,7 +119,6 @@
 
 
 
-
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
@@ -131,12 +130,12 @@ import quizRoutes from "./routes/quizRoutes.js";
 
 const app = express();
 
-// ✅ CORS Configuration with Proper Headers and Credentials
+// ✅ CORS Configuration: Allow Only Your Frontend
 const corsOptions = {
-  origin: "*",
+  origin: "https://quiz-react-app-fk1.vercel.app", // ✅ Allow only your frontend
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true, // Allow cookies and auth headers
+  credentials: true, // ✅ Allow cookies and authentication headers
 };
 
 app.use(cors(corsOptions));
@@ -156,10 +155,10 @@ mongoose
     process.exit(1);
   });
 
-// ✅ Ensure Correct API Path
+// ✅ API Routes
 app.use("/api/quiz", quizRoutes);
 
-// ✅ Basic Test Route
+// ✅ Test Route
 app.get("/", (req, res) => {
   res.json({ message: "Hello, this is your message API!" });
 });
@@ -167,4 +166,3 @@ app.get("/", (req, res) => {
 // ✅ Start Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
-
