@@ -61,7 +61,7 @@ const Quiz = () => {
     const [score, setScore] = useState(null);
 
     useEffect(() => {
-        axios.get("https://quiz-react-app-backend4.vercel.app/quiz")
+        axios.get("hhttps://quiz-react-app-bk5.vercel.app/api/quiz")
             .then(res => setQuestions(res.data))
             .catch(err => console.log(err));
     }, []);
@@ -76,7 +76,7 @@ const Quiz = () => {
     };
 
     const submitAnswers = () => {
-        axios.post("https://quiz-react-app-backend4.vercel.app/quiz/submit", { answers })
+        axios.post("https://quiz-react-app-bk5.vercel.app/api/quiz/submit", { answers })
             .then(res => setScore(res.data.score))
             .catch(err => console.log(err));
     };
