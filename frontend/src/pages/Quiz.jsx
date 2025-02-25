@@ -49,8 +49,6 @@
 // };
 
 // export default Quiz;
-
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -61,9 +59,9 @@ const Quiz = () => {
     const [score, setScore] = useState(null);
 
     useEffect(() => {
-        axios.get("hhttps://quiz-react-app-bk5.vercel.app/quiz")
+        axios.get("https://quiz-react-app-bkk1.vercel.app/api/quiz") // ✅ Fixed backend URL
             .then(res => setQuestions(res.data))
-            .catch(err => console.log(err));
+            .catch(err => console.log("Error fetching questions:", err));
     }, []);
 
     const handleAnswer = (option) => {
@@ -76,9 +74,9 @@ const Quiz = () => {
     };
 
     const submitAnswers = () => {
-        axios.post("https://quiz-react-app-bk5.vercel.app/quiz/submit", { answers })
+        axios.post("https://quiz-react-app-bkk1.vercel.app/api/quiz/submit", { answers }) // ✅ Fixed backend URL
             .then(res => setScore(res.data.score))
-            .catch(err => console.log(err));
+            .catch(err => console.log("Error submitting answers:", err));
     };
 
     return (
@@ -106,3 +104,4 @@ const Quiz = () => {
 };
 
 export default Quiz;
+
