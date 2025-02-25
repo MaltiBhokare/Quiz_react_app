@@ -33,7 +33,7 @@ const router = express.Router();
 
 // ✅ Middleware to Add CORS Headers in Responses
 router.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://quiz-react-app-fk1.vercel.app"); // ✅ Allow frontend
+    res.header("Access-Control-Allow-Origin", "*"); // ✅ Allow frontend https://quiz-react-app-fk1.vercel.app
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
     res.header("Access-Control-Allow-Credentials", "true");
